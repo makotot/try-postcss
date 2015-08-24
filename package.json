@@ -10,10 +10,13 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.8.2",
+    "cssnext": "^1.8.3",
     "del": "^1.2.1",
     "gulp": "^3.9.0",
-    "gulp-postcss": "^6.0.0",
+    "gulp-cssnano": "^1.1.0",
+    "gulp-postcss": "^5.1.10",
     "postcss-import": "^6.2.0",
+    "postcss-nested": "^1.0.0",
     "run-sequence": "^1.1.2"
   }
 }

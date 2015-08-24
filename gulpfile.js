@@ -2,7 +2,8 @@ var gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
   del = require('del'),
   runSequence = require('run-sequence'),
-  postCss = require('gulp-postcss');
+  postCss = require('gulp-postcss'),
+  cssnano = require('gulp-cssnano')
 
 
 gulp.task('clean', function (done) {
@@ -20,8 +21,9 @@ gulp.task('css', function () {
 
   return gulp.src('./src/css/*.css')
     .pipe(postCss([
-//      require('postcss-import')()
+      require('cssnext')()
     ]))
+    .pipe(cssnano())
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
 });
