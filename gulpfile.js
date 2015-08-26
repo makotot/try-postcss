@@ -3,7 +3,11 @@ var gulp = require('gulp'),
   del = require('del'),
   runSequence = require('run-sequence'),
   postCss = require('gulp-postcss'),
-  cssnano = require('gulp-cssnano')
+  cssnano = require('gulp-cssnano'),
+  cssnext = require('cssnext'),
+  stylelint = require('stylelint'),
+  autoprefixer = require('autoprefixer-core'),
+  reporter = require('postcss-reporter');
 
 
 gulp.task('clean', function (done) {
@@ -21,7 +25,17 @@ gulp.task('css', function () {
 
   return gulp.src('./src/css/*.css')
     .pipe(postCss([
-      require('cssnext')()
+      cssnext(),
+      autoprefixer({
+        browsers: ['last 2 versions']
+      }),
+      stylelint({
+        'rules': {
+        }
+      }),
+      reporter({
+        clearMessages: true
+      })
     ]))
     .pipe(cssnano())
     .pipe(gulp.dest('./build/css'))
