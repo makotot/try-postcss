@@ -5,6 +5,7 @@ var gulp = require('gulp'),
   postCss = require('gulp-postcss'),
   cssnano = require('gulp-cssnano'),
   cssnext = require('cssnext'),
+  rucksack = require('rucksack-css'),
   stylelint = require('stylelint'),
   autoprefixer = require('autoprefixer-core'),
   reporter = require('postcss-reporter');
@@ -26,6 +27,7 @@ gulp.task('css', function () {
   return gulp.src('./src/css/*.css')
     .pipe(postCss([
       cssnext(),
+      rucksack(),
       autoprefixer({
         browsers: ['last 2 versions']
       }),

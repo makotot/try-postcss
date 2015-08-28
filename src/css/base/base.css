@@ -2,7 +2,7 @@ body  {
   margin: 0;
   background-color: #fff;
   color: #222;
-  font-size: 14px;
+  font-size: responsive;
   line-height: 1;
 }
 
